@@ -1,14 +1,20 @@
 import java.util.Scanner;
 
+/**
+ * Clase que contiene el programa principal que gestiona la venta de boletos para un evento.
+ */
 public class Program {
 
     public static void main(String[] args){
+        // Creación de instancias de localidades
         Localidad localidad1 = new Localidad(100,1);
         Localidad localidad5 = new Localidad(500,5);
         Localidad localidad10 = new Localidad(1000,10);
         Scanner myInput = new Scanner(System.in);
         Comprador cliente = null;
         boolean finalizar = false;
+
+        // Ciclo principal del programa
         while(!finalizar){
             System.out.println("Ingrese la opcion que desea realizar:");
             System.out.println("1.Nuevo Cliente");
@@ -113,6 +119,11 @@ public class Program {
         myInput.close();
     }
 
+    /**
+     * Método que gestiona la venta de boletos para una localidad específica.
+     * @param localidad La localidad para la que se gestionará la venta.
+     * @param cliente El comprador que desea adquirir boletos.
+     */
     public static void manejarVentas(Localidad localidad, Comprador cliente) {
         System.out.println("La localidad es " + localidad.getId());
         int disponibles = 20 - localidad.getVentas();
@@ -137,6 +148,11 @@ public class Program {
         }
     }
 
+
+    /**
+     * Método que muestra la disponibilidad individual de una localidad.
+     * @param localidad La localidad de la cual se mostrará la disponibilidad.
+     */
     public static void dispoIndividual(Localidad localidad){
         System.out.println("La localidad es " + localidad.getId());
         System.out.println("Con " + localidad.getVentas() + " Ventas y " + (20 - localidad.getVentas()) + " boletos disponibles");
